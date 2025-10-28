@@ -1,0 +1,41 @@
+RESUMEN EJECUTIVO - DATASET LIMPIO
+==================================================
+
+Dataset: South German Credit Dataset - Limpio
+Fecha: 2025-10-27T22:44:24.627943
+Filas: 1000 → 1000
+Columnas: 21
+
+TIPOS DE VARIABLES:
+--------------------
+duration_months: numerical
+credit_amount: numerical
+age: numerical
+installment_rate: ordinal
+residence_since: ordinal
+existing_credits: ordinal
+people_liable: ordinal
+checking_account_status: categorical
+credit_history: categorical
+purpose: categorical
+savings_account: categorical
+employment_since: categorical
+personal_status_sex: categorical
+other_debtors: categorical
+property: categorical
+other_installment_plans: categorical
+housing: categorical
+job: categorical
+telephone: categorical
+foreign_worker: categorical
+target: categorical
+
+LIMPIEZA APLICADA:
+--------------------
+Tratamientos: 3
+Variables tratadas: 3
+
+ANÁLISIS DE ASOCIACIÓN:
+-------------------------
+Variables analizadas: 20
+Variables significativas: 12

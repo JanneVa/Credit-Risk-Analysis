@@ -1,0 +1,21 @@
+variable,cramers_v,chi2,interpretation,emoji,tipo
+credit_amount,0.9652699268836835,931.7460317460318,Muy Fuerte,🔵,numerical
+checking_account_status,0.3517398804745711,123.72094351626559,Moderada,🟠,categorical
+duration_months,0.28086818361843396,78.88693656911833,Débil,🟡,numerical
+credit_history,0.24837752910558455,61.691396964595505,Débil,🟡,categorical
+age,0.24005620569962097,57.626981894898734,Débil,🟡,numerical
+savings_account,0.18999717943279765,36.098928192418704,Débil,🟡,categorical
+purpose,0.18263747386946128,33.35644686141815,Débil,🟡,categorical
+property,0.15401152971081322,23.719551283864707,Débil,🟡,categorical
+housing,0.13665286456161427,18.674005392894895,Débil,🟡,categorical
+employment_since,0.13552960505622672,18.3682738466968,Débil,🟡,categorical
+other_installment_plans,0.11331013959865258,12.839187735866135,Débil,🟡,categorical
+personal_status_sex,0.09800619347437206,9.60521395933605,Negligible,🔴,categorical
+other_debtors,0.08151911761828781,6.645366537264243,Negligible,🔴,categorical
+foreign_worker,0.07629925238843341,5.821575915033861,Negligible,🔴,categorical
+installment_rate,0.07400535213857004,5.476792145153753,Negligible,🔴,ordinal
+existing_credits,0.05168363507896929,2.6711981349760645,Negligible,🔴,ordinal
+job,0.04341838352602698,1.8851560280131707,Negligible,🔴,categorical
+telephone,0.034242641998258334,1.1725585310208857,Negligible,🔴,categorical
+residence_since,0.027373279825188123,0.7492964483880512,Negligible,🔴,ordinal
+people_liable,0.0,0.0,Negligible,🔴,ordinal

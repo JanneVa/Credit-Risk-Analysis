@@ -1,0 +1,41 @@
+{
+  "dataset_info": {
+    "nombre": "South German Credit Dataset - Limpio",
+    "fecha_creacion": "2025-10-27T22:48:59.120263",
+    "filas_originales": 1000,
+    "filas_finales": 1000,
+    "columnas": 21,
+    "variables_objetivo": "target (1=Good, 0=Bad)"
+  },
+  "tipos_variables": {
+    "duration_months": "numerical",
+    "credit_amount": "numerical",
+    "age": "numerical",
+    "installment_rate": "ordinal",
+    "residence_since": "ordinal",
+    "existing_credits": "ordinal",
+    "people_liable": "ordinal",
+    "checking_account_status": "categorical",
+    "credit_history": "categorical",
+    "purpose": "categorical",
+    "savings_account": "categorical",
+    "employment_since": "categorical",
+    "personal_status_sex": "categorical",
+    "other_debtors": "categorical",
+    "property": "categorical",
+    "other_installment_plans": "categorical",
+    "housing": "categorical",
+    "job": "categorical",
+    "telephone": "categorical",
+    "foreign_worker": "categorical",
+    "target": "categorical"
+  },
+  "estadisticas_limpieza": {
+    "tratamientos_aplicados": 3,
+    "variables_tratadas": 3
+  },
+  "analisis_asociacion": {
+    "variables_analizadas": 20,
+    "variables_significativas": 12
+  }
+}

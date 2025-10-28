@@ -1,0 +1,28 @@
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 1000 entries, 0 to 999
+Data columns (total 21 columns):
+ #   Column                   Non-Null Count  Dtype   
+---  ------                   --------------  -----   
+ 0   checking_account_status  1000 non-null   category
+ 1   duration_months          1000 non-null   int64   
+ 2   credit_history           1000 non-null   category
+ 3   purpose                  1000 non-null   category
+ 4   credit_amount            1000 non-null   int64   
+ 5   savings_account          1000 non-null   category
+ 6   employment_since         1000 non-null   category
+ 7   installment_rate         1000 non-null   category
+ 8   personal_status_sex      1000 non-null   category
+ 9   other_debtors            1000 non-null   category
+ 10  residence_since          1000 non-null   category
+ 11  property                 1000 non-null   category
+ 12  age                      1000 non-null   int64   
+ 13  other_installment_plans  1000 non-null   category
+ 14  housing                  1000 non-null   category
+ 15  existing_credits         1000 non-null   category
+ 16  job                      1000 non-null   category
+ 17  people_liable            1000 non-null   category
+ 18  telephone                1000 non-null   category
+ 19  foreign_worker           1000 non-null   category
+ 20  target                   1000 non-null   category
+dtypes: category(18), int64(3)
+memory usage: 44.4 KB
