@@ -4,6 +4,13 @@
 
 This comprehensive analysis of the South German Credit dataset reveals critical insights for credit risk modeling and operational decision-making. The dataset contains 1,000 credit applications with a 30% default rate, providing a solid foundation for developing predictive models and risk management strategies.
 
+### Latest Results (global.ipynb)
+- Recommended final model: `rf_calibrated` (Calibrated Random Forest)
+- Recommended decision threshold (cost FP:5, FN:1): `0.76`
+- Key test metrics (post-calibration): ROC-AUC ≈ 0.804, PR-AUC ≈ 0.894, F1@0.5 ≈ 0.848, F1@opt ≈ 0.866
+- Stability: 5-fold stratified CV with low variance vs. peers
+- Fairness: Reported Demographic Parity and Equal Opportunity by groups; propose segment thresholds or manual review where needed
+
 ## Dataset Overview
 
 - **Total Records**: 1,000 credit applications
@@ -70,23 +77,14 @@ This comprehensive analysis of the South German Credit dataset reveals critical 
 
 ## Modeling Recommendations
 
-### 1. Model Selection Strategy
+### 1. Model Selection Strategy (Updated)
 
-**Primary Models to Test:**
-1. **Logistic Regression** (baseline model)
-   - Interpretable coefficients
-   - Good for regulatory compliance
-   - Fast training and prediction
+We trained and evaluated Logistic Regression, Decision Tree, Random Forest, and MLP, incorporating probability calibration (Isotonic/Platt) and stratified cross-validation for stability. The calibrated Random Forest showed the lowest expected cost under FP:FN = 5:1 while keeping strong PR-AUC/ROC-AUC and low variance.
 
-2. **Random Forest**
-   - Handles non-linear relationships
-   - Feature importance ranking
-   - Robust to outliers
-
-3. **Gradient Boosting (XGBoost/LightGBM)**
-   - High predictive performance
-   - Handles complex interactions
-   - Built-in feature selection
+**Final recommendation:**
+- Model: `rf_calibrated`
+- Threshold (cost-optimal FP:5, FN:1): `0.76`
+- Why: minimizes expected cost, competitive PR-AUC on imbalanced data, stable across folds, calibrated probabilities (thresholds are reliable)
 
 ### 2. Feature Engineering for Modeling
 
@@ -103,17 +101,18 @@ This comprehensive analysis of the South German Credit dataset reveals critical 
 - Duration × Employment Status
 - Savings × Credit History
 
-### 3. Model Validation Strategy
+### 3. Model Validation Strategy (Updated)
 
 **Cross-Validation:**
-- 5-fold stratified cross-validation
+- 5-fold stratified cross-validation (stability reported: mean, std, CV by metric)
 - Time-based splits if temporal patterns exist
 - Holdout set for final evaluation
 
 **Performance Metrics:**
-- **Primary**: AUC-ROC and Precision-Recall curves
-- **Business**: Cost-sensitive metrics (cost matrix: 5:1 ratio)
-- **Fairness**: Demographic parity and equalized odds
+- **Primary**: ROC-AUC and PR-AUC
+- **Business**: Cost-sensitive metrics (cost matrix: FP:5, FN:1)
+- **Threshold Sensitivity**: metrics vs threshold curves; F1-optimal and cost-optimal thresholds
+- **Fairness**: Demographic Parity (positive rate) and Equal Opportunity (TPR) by groups; group sizes and visuals
 
 ### 4. Risk Management Integration
 
@@ -135,14 +134,19 @@ This comprehensive analysis of the South German Credit dataset reveals critical 
 3. **Train credit team** on new risk indicators
 
 ### Short-term (1-3 months)
-1. **Develop scoring system** incorporating key features
-2. **Create differentiated policies** by risk segment
-3. **Implement A/B testing** for new rules
+1. **Deploy calibrated model (`rf_calibrated`)** with decision threshold `0.76` (cost FP:5, FN:1)
+2. **Create differentiated policies** by segment (fairness: lower TPR groups) or add manual review
+3. **Implement A/B testing** for threshold and policy adjustments
 
 ### Medium-term (3-6 months)
-1. **Deploy predictive model** with continuous monitoring
-2. **Build risk dashboard** for real-time monitoring
-3. **Establish model refresh** procedures
+1. **Continuous monitoring** of PR-AUC/ROC-AUC, F1, Brier Score (recalibrate if Brier worsens >10%)
+2. **Build fairness dashboard** (DP/TPR by group, group sizes); monthly audits
+3. **Establish model refresh** procedures and drift detection (KS on scores, PSI on key variables)
+
+##Recomendation
+- We recommend a calibrated Random Forest with a 0.76 threshold for default risk decisions.
+- This setup reduces the cost of wrong decisions given the business policy FP:FN = 5:1, remains stable across datasets, and uses calibrated probabilities (thresholds are meaningful).
+- Operatively, use it for screening/prioritization; apply segment-specific thresholds or manual review if fairness audits show gaps.
 
 ## Expected Business Impact
 
